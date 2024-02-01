@@ -1,0 +1,33 @@
+
+@media print {
+
+    h1, h2, h3 {
+        color: #000; /* Set header text color to black */
+      }
+
+      body{
+        color: #000;
+      }
+
+
+    /* Remove background colors */
+    * {
+      background: transparent !important;
+    }
+
+    /* Remove images */
+    img {
+      display: none !important;
+    }
+
+    .onlyprint{
+        display: block;
+      }
+
+    /* Remove other styles like borders if needed */
+    *:before,
+    *:after {
+      border: 0 !important;
+    }
+}
+

@@ -16,6 +16,10 @@ Information Task B and Navigation
 9	Websocket – chat-- First run node /server/index.js
 10      Contact Form- First Name, Last Name, Gender, DOB, Email, Message box. 
 
+Note: Add print.css to all tabs.
+      Media queries for the navigation
+
+
 
 References:
 https://www.w3schools.com/html/default.asp
