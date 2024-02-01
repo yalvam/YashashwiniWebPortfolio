@@ -56,7 +56,8 @@
               movieList.appendChild(listItem);
            });
          }
-        xhttp.open("GET","movies.json")
+        //to avoid cross origin issue am getting json file from git hut
+        xhttp.open("GET","https://raw.githubusercontent.com/yalvam/YashashwiniWebPortfolio/main/movies.json")
         xhttp.send();
        } 
 
