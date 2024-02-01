@@ -13,7 +13,7 @@ Information Task B and Navigation
 6	XMLHttpRequest on click gives Top 5 IMDB Movies
 7	Local Storage – Click the buttons to see individual counters increase.
 8	Web worker API- Count the number of words, lines and repeated word
-9	Websocket – chat-- First run node /server/index.js
+9	Websocket – chat-- First run node server/index.js
 10      Contact Form- First Name, Last Name, Gender, DOB, Email, Message box. 
 
 Note: Add print.css to all tabs.
