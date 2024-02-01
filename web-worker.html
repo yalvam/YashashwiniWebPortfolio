@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/jpg" href="image/P.JPG">
+        <link rel="preconnect" href="https://fonts.googeapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6b3f7ff147.js" crossorigin="anonymous"></script>
+    </head>
+   <!-- YASHASHWINI ALVA, Programming in HTML5, Assignment Task B -->
+    <body>
+     
+        
+      <header><h1><div> Portfolio </div></h1></header>
+
+          <!--Navigation bar  -->
+       <nav class="navbar">
+            <ul>
+                
+                <li><a href="index.html" >Home & Intro</a></li>
+                <li><a href="embed.html">Embeds</a></li>
+                <li><a href="canvas.html">Canvas API & SVG</a></li>
+                <li><a href="CSS Transition & Animation.html">CSS Transition & Animation</a></li>
+                <li><a href="geolocation.html">Geolocation API</a></li>
+                <li><a href="XMLHttpRequest.html">XMLHttpRequest</a></li>
+                <li><a href="localstorage.html">Local Storage</a></li>
+                <li><a href="web_socket.html">Web Socket</a></li>
+                <li><a href="web-worker.html" class="active">Web Worker</a></li>
+                <li><a href="contact.html">Contact</a></li>            
+            </ul>
+       </nav>
+       <main>
+            <h2 style="text-align: center; color: aqua;">Web worker API- Counts the number of words, lines and repeated word</h2>
+            <div style="text-align: center; color: aqua;">
+            <textarea style="width: 500px;height: 50px;"   id="textInput" placeholder="Type or paste text here..."></textarea>
+    <div>
+    <strong>Word count:</strong> <span id="wordCount">0</span><br>
+    <strong>Line count:</strong> <span id="lineCount">0</span><br>
+    <strong>Repeated words:</strong> <span id="repeatedWords">N/A</span>
+    </div>
+    <button id="resetButton">Reset</button>
+</div>
+<!-- JavaScript with Web Worker -->
+<script>
+    //Web worker code to compute word count, line and repated words.
+  const workerCode = `
+    onmessage = function(event) {
+      const text = event.data;
+
+      // Word count
+      const words = text.split(/\\s+/);
+      const wordCount = words.length;
+
+      // Line count
+      const lines = text.split(/\\r\\n|\\r|\\n/);
+      const lineCount = lines.length;
+
+      // Repeated words
+      const wordMap = {};
+      const repeatedWords = [];
+
+      words.forEach((word) => {
+        wordMap[word] = (wordMap[word] || 0) + 1;
+
+        if (wordMap[word] > 1 && !repeatedWords.includes(word)) {
+          repeatedWords.push(word);
+        }
+      });
+
+      // Send results back to the main thread
+      postMessage({ wordCount, lineCount, repeatedWords });
+    };
+  `;
+
+  const blob = new Blob([workerCode], { type: 'application/javascript' });
+  const worker = new Worker(URL.createObjectURL(blob));
+ // getting the html element and give it to const
+  const textInput = document.getElementById('textInput');
+  const wordCountSpan = document.getElementById('wordCount');
+  const lineCountSpan = document.getElementById('lineCount');
+  const repeatedWordsSpan = document.getElementById('repeatedWords');
+  const resetButton = document.getElementById('resetButton');
+
+ // add event listner to input box and posting message to worker function
+  textInput.addEventListener('input', () => {
+    const textData = textInput.value;
+
+    // Send text data to the Web Worker for analysis
+    worker.postMessage(textData);
+  });
+
+  resetButton.addEventListener('click', () => {
+    // Reset text input and analysis results
+    textInput.value = '';
+    wordCountSpan.textContent = '0';
+    lineCountSpan.textContent = '0';
+    repeatedWordsSpan.textContent = 'N/A';
+  });
+
+  // Listen for messages from the Web Worker
+  worker.onmessage = function(event) {
+    const { wordCount, lineCount, repeatedWords } = event.data;
+
+    // Update the UI with the analysis results
+    wordCountSpan.textContent = wordCount;
+    lineCountSpan.textContent = lineCount;
+    repeatedWordsSpan.textContent = repeatedWords.join(', ');
+  };
+</script>
+
+   
+
+
+
+       </main>
+       <footer>
+        <div class='foot'>
+            <div>Yashashwini Alva</div>
+             <spam><small>By using this site, you agree to the Terms of Use and Privacy Policy.
+            Copyright &copy:All Rights Reserved</small></spam>
+        </div>
+
+
+       </footer>
+    </body>
+
+</html>

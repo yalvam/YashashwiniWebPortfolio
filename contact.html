@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/jpg" href="image/P.JPG">
+        <link rel="preconnect" href="https://fonts.googeapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6b3f7ff147.js" crossorigin="anonymous"></script>
+    </head>
+     <!-- YASHASHWINI ALVA, Programming in HTML5, Assignment Task B -->
+    <body>
+     
+        
+      <header><h1><div> Portfolio </div></h1></header>
+
+         <!--Navigation bar  -->
+       <nav class="navbar">
+            <ul>
+                
+                <li><a href="index.html">Home & Intro</a></li>
+                <li><a href="embed.html">Embed</a></li>
+                <li><a href="canvas.html">Canvas API & SVG</a></li>
+                <li><a href="CSS Transition & Animation.html">CSS Transition & Animation</a></li>
+                <li><a href="geolocation.html">Geolocation API</a></li>
+                <li><a href="XMLHttpRequest.html">XMLHttpRequest</a></li>
+                <li><a href="localstorage.html">Local Storage</a></li>
+                <li><a href="web_socket.html">Web Socket</a></li>
+                <li><a href="web-worker.html">Web Worker</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>            
+            </ul>
+       </nav>
+       <main>
+        <h2 style="text-align: center; color: aqua;">Contact Form</h2>
+        <div class="boody">
+
+        <!-- form sturcture  give input type label -->
+        <form id="registrationForm" onsubmit="validateForm(event)">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+    
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+    
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+    
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea name="message" id="message" cols="40" rows="5" required></textarea>
+            <br>
+           
+            <!-- submit the form -->
+            <button type="submit">Submit</button>
+    
+            <div id="success-message"></div>
+            
+            <script src="script.js"></script>
+        </form>
+       </div>
+    
+
+
+
+       </main>
+       <footer>
+        <div class='foot'>
+            <div>Yashashwini Alva</div>
+             <spam><small>By using this site, you agree to the Terms of Use and Privacy Policy.
+            Copyright &copy:All Rights Reserved</small></spam>
+        </div>
+
+
+       </footer>
+    </body>
+
+</html>

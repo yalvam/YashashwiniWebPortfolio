@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/jpg" href="image/P.JPG">
+        <link rel="preconnect" href="https://fonts.googeapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6b3f7ff147.js" crossorigin="anonymous"></script>
+    </head>
+    <!-- YASHASHWINI ALVA, Programming in HTML5, Assignment Task B -->
+    <body>
+     
+        
+      <header><h1><div> Portfolio </div></h1></header>
+
+         <!--Navigation bar  --> 
+       <nav class="navbar">
+            <ul>
+                
+                <li><a href="index.html">Home & Intro</a></li>
+                <li><a href="embed.html">Embeds</a></li>
+                <li><a href="canvas.html">Canvas API & SVG</a></li>
+                <li><a href="CSS Transition & Animation.html">CSS Transition & Animation</a></li>
+                <li><a href="geolocation.html">Geolocation API</a></li>
+                <li><a href="XMLHttpRequest.html" class="active">XMLHttpRequest</a></li>
+                <li><a href="localstorage.html">Local Storage</a></li>
+                <li><a href="web_socket.html">Web Socket</a></li>
+                <li><a href="web-worker.html">Web Worker</a></li>
+                <li><a href="contact.html">Contact</a></li>            
+            </ul>
+       </nav>
+       <main>
+         <h1> XMLHttpRequest</h1>
+         <!-- display movies -->
+            <div style="text-align:center ;">
+            <h3 style="color: aqua;">Top 5 IMDB Movies</h3>
+          <button onclick="showMovies()">SHOW TOP MOVIES</button>
+          <div class="movie"> <ul  style="color: aqua; list-style-type: none;" id="movieList"></ul></div>
+
+            </div>
+          <script>
+
+            
+   
+        // function to get the movies from json file and display it using foreach
+        function showMovies() {
+         const xhttp = new XMLHttpRequest();
+         xhttp.onload = function(){
+        const topMovies=JSON.parse(this.responseText);                  
+           var movieList = document.getElementById('movieList');
+           movieList.innerHTML = '';
+           topMovies.topMovies.forEach(function(movie){
+              var listItem = document.createElement('li');
+              listItem.innerHTML = `<strong>${movie.title}</strong> (${movie.year}) - Directed by ${movie.director}, Genre: ${movie.genre.join(', ')}`;
+              movieList.appendChild(listItem);
+           });
+         }
+        xhttp.open("GET","movies.json")
+        xhttp.send();
+       } 
+
+
+ 
+
+
+            
+          </script>
+       </main>
+       <footer>
+        <div class='foot'>
+            <div>Yashashwini Alva</div>
+             <spam><small>By using this site, you agree to the Terms of Use and Privacy Policy.
+            Copyright &copy:All Rights Reserved</small></spam>
+        </div>
+
+
+       </footer>
+    </body>
+
+</html>

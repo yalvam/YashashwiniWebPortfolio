@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/jpg" href="image/P.JPG">
+        <link rel="preconnect" href="https://fonts.googeapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6b3f7ff147.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        
+        <style>body {
+            font-family: sans-serif;
+            background-color: #333;
+        }
+        
+        .page-container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2em;
+        }
+        
+        #myMap {
+            border: 3px solid aqua; 
+            width: 100%;
+            height: 400px;
+        }
+        #legend {
+          margin-top: 10px;
+          font-size: 14px;
+          color:rgb(55, 90, 90);
+       }
+    </style>
+    </head>
+   <!-- YASHASHWINI ALVA, Programming in HTML5, Assignment Task B -->
+    <body>
+     
+        
+      <header><h1><div> Portfolio </div></h1></header>
+
+          <!--Navigation bar  -->
+       <nav class="navbar">
+            <ul>
+                
+                <li><a href="index.html" >Home & Intro</a></li>
+                <li><a href="embed.html">Embeds</a></li>
+                <li><a href="canvas.html">Canvas API & SVG</a></li>
+                <li><a href="CSS Transition & Animation.html">CSS Transition & Animation</a></li>
+                <li><a href="geolocation.html" class="active">Geolocation API</a></li>
+                <li><a href="XMLHttpRequest.html">XMLHttpRequest</a></li>
+                <li><a href="localstorage.html" >Local Storage</a></li>
+                <li><a href="web_socket.html">Web Socket</a></li>
+                <li><a href="web-worker.html">Web Worker</a></li>
+                <li><a href="contact.html">Contact</a></li>            
+            </ul>
+       </nav>
+       <main>
+
+        <h1>HTML Geolocation</h1>
+<p style="color: aqua; text-align: center;">Click the button to get your coordinates.</p>
+
+<div style="text-align: center;"><button onclick="getLocation()" style="height: 10%;width: 10%; background-color: aqua;"><b>Try It</b></button></div>
+
+<!-- Display the longitude and latitude -->
+<div><h1 id="demo" style="color: aqua;"></h1></div>
+<br>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div class="page-container">
+
+        <h1>Leaflet</h1>
+        <p>
+          <button id="find-me">Find Me</button>
+        </p>
+        <!-- Element to insert the map into -->
+        <div id="myMap"></div>
+        <div id="legend"></div>
+    </div>
+</div>
+
+
+
+<script>
+const x = document.getElementById("demo");
+ // to get the current possition
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+ // to dislpay current possition
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------
+// Step 1: create a map
+const map = L.map('myMap');
+    map.setView({ lon: 0, lat: 0 }, 2);
+ // Step 2: specify the tiles
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    // Step 3: add a marker to the map
+    L.marker({ lon: 0, lat: 0 }).bindPopup('The center of the world').addTo(map);
+
+    // Step 4: add geolocation functionality
+    const button = document.querySelector('#find-me');
+    const legend = document.getElementById('legend');
+   
+
+    // ZOOM in and out functionality
+    function doZoom() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLocation = {
+          lon: position.coords.longitude,
+          lat: position.coords.latitude,
+        };
+        
+        map.setView(userLocation, 12); // Zoom to the user's location with a zoom level of 12
+        L.marker(userLocation).bindPopup('Your Location').addTo(map);
+
+        // Update legend with current location
+            legend.textContent = `Current Location: Lat ${userLocation.lat.toFixed(6)}, Lon ${userLocation.lon.toFixed(6)}`;
+        },
+        (error) => {
+            console.error('Error getting geolocation:', error.message);
+            alert('Unable to retrieve your location.');
+        });
+   }
+
+    button.addEventListener('click', doZoom);
+
+</script>
+       </main>
+       <footer>
+        <div class='foot'>
+            <div>Yashashwini</div>
+             <spam><small>By using this site, you agree to the Terms of Use and Privacy Policy.
+            Copyright &copy:All Rights Reserved</small></spam>
+        </div>
+
+
+       </footer>
+    </body>
+
+</html>

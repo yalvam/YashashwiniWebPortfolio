@@ -1,0 +1,35 @@
+{
+    "topMovies": [
+      {
+        "title": "Inception",
+        "year": 2010,
+        "director": "Christopher Nolan",
+        "genre": ["Action", "Sci-Fi", "Thriller"]
+      },
+      {
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "director": "Frank Darabont",
+        "genre": ["Drama"]
+      },
+      {
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "director": "Quentin Tarantino",
+        "genre": ["Crime", "Drama"]
+      },
+      {
+        "title": "The Dark Knight",
+        "year": 2008,
+        "director": "Christopher Nolan",
+        "genre": ["Action", "Crime", "Drama"]
+      },
+      {
+        "title": "Forrest Gump",
+        "year": 1994,
+        "director": "Robert Zemeckis",
+        "genre": ["Drama", "Romance"]
+      }
+     
+    ]
+  }

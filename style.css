@@ -1,0 +1,350 @@
+/*styling the header*/  
+h1
+{
+    color: rgb(19, 248, 248);
+    text-align:center ;
+    text-shadow: 3px 3px 5px hsl(0, 0%, 99%),3px 3px 5px hsl(244, 86%, 58%);
+    height: 70px;
+    font-size: 50px;    
+    font-family: Roboto;
+
+
+} 
+/*styling the body*/  
+body{
+    margin: 0%;
+    background-image: url(image/web.JPG);
+    background-repeat: no-repeat ;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Roboto;
+    font-size: 150%;
+    
+    
+}
+
+.d{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+main{   
+ margin: 5%;
+}
+/*styling the nav bar*/  
+.navbar ul{
+    list-style-type: none ;
+    background-color: white;
+    height: 30px;
+    padding: 0px;
+    margin: 0%;
+    overflow: hidden;
+}
+.navbar li{
+    float:left;
+}
+.navbar a{
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    display: blocks;
+    text-align:center;
+    font-family: Roboto; 
+    font-size: large;
+}
+/* navigation interaction*/
+.navbar a:hover{
+    background-color: rgb(212, 238, 238);
+    
+}
+.navbar a.active{
+    
+    background-color: rgb(237, 253, 250);
+    color: blueviolet;
+    text-decoration:underline blueviolet;
+    
+    
+}
+
+/*image formating*/  
+
+
+#imgright{
+    float:right;
+    margin: 10px;
+    height: 290px;
+    width:520px ;
+}
+#imgleft{
+    float:left;
+    margin: 10px;
+    height: 290px;
+    width :520px ;
+}
+.white{
+    background-color: white;
+    margin: 10px;
+    height: 315px;
+    overflow: auto;
+}
+.img{
+    display: flex;
+    animation-name:shrink;
+    animation-duration: 3s;
+}
+
+.img:hover{
+    animation-name:shrink;
+    animation-duration: 3s;
+}
+
+.cssani {
+    display: inline-flex;
+   
+}
+
+
+.btn {
+    float: right; 
+    background-color: rgb(125, 189, 241); 
+} 
+
+/*animation on images*/ 
+
+@keyframes shrink{
+  1%{transform: scale(0.6,0.6);} 
+}
+@keyframes shrink{
+    1%{transform: scale(0.6,0.6);} 
+  }
+
+/*styling the footer*/ 
+
+footer{
+    display: block;
+    background-color: rgb(5, 12, 29);
+    clear: both;
+    text-align:center;
+    color: white;
+    text-decoration:none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.last{
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; 
+}
+
+details {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+details:hover {
+    background-color: rgb(255, 255, 255);  
+}
+
+summary {
+    cursor: pointer;
+}
+
+.headcont{
+    text-align: right;
+    font-size: medium;
+
+}
+
+/*styling the the end page*/ 
+.end{
+
+    border: 2px solid #ccc;
+    font-size: xx-large;
+    text-align: center;
+    background-color: rgb(241, 248, 248);
+    
+}
+
+/*styling the the contact page*/ 
+.contact{
+    display: inline-block;
+    border-radius: 10px;
+    margin: 20px;
+    width: 120px;
+}
+.contact:hover{
+    background-color: rgb(127, 214, 214);
+}
+
+.contact .description{
+    padding: 5px;
+    text-align: center;
+
+}
+
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    border: 1px solid #97cedf;
+    border-radius: 4px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    border: 1px solid #97cedf;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #32c7ec;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8ed1e2;
+}
+
+#success-message {
+    color: #31c9ce;
+    margin-top: 10px;
+}
+
+
+/* animation for rotate*/ 
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .element:hover {
+    animation: rotate 2s linear infinite;
+  }
+
+.chat{
+  background-color: rgb(253, 253, 253);
+  color: rgb(14, 13, 13);
+  display: inline-flex;
+}
+.chatin{
+  margin: 5rem;
+}

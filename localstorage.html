@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/jpg" href="image/P.JPG">
+        <link rel="preconnect" href="https://fonts.googeapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6b3f7ff147.js" crossorigin="anonymous"></script>
+    </head>
+   <!-- YASHASHWINI ALVA, Programming in HTML5, Assignment Task B -->
+    <body>
+     
+        
+      <header><h1><div> Portfolio </div></h1></header>
+
+         <!--Navigation bar  -->
+
+       <nav class="navbar">
+            <ul>
+                
+                <li><a href="index.html" >Home & Intro</a></li>
+                <li><a href="embed.html">Embeds</a></li>
+                <li><a href="canvas.html">Canvas API & SVG</a></li>
+                <li><a href="CSS Transition & Animation.html">CSS Transition & Animation</a></li>
+                <li><a href="geolocation.html">Geolocation API</a></li>
+                <li><a href="XMLHttpRequest.html">XMLHttpRequest</a></li>
+                <li><a href="localstorage.html" class="active">Local Storage</a></li>
+                <li><a href="web_socket.html">Web Socket</a></li>
+                <li><a href="web-worker.html">Web Worker</a></li>
+                <li><a href="contact.html">Contact</a></li>            
+            </ul>
+       </nav>
+       <main>
+        <h1>Local Storage</h1>
+        <div style="text-align: center;">
+        <div style="color: white;"> <h3>Click the buttons to see individual counters increase.</h3></div>
+
+        <!-- On click call the function and display the count -->
+          
+          <p><button style="width: 20%; height: 20%;" onclick="clickCounter('counter1')" type="button"><h3>Click me - Counter 1</h3></button></p>
+           
+          <div style="color: aqua; font-weight: bolder;" id="result-counter1"></div>
+
+            <p><button style="width: 20%; height: 20%;" onclick="clickCounter('counter2')" type="button"><h3>Click me - Counter 2</h3></button></p>
+            <div style="color: aqua; font-weight: bolder;" id="result-counter2"></div>
+
+        </div>
+
+         <script>
+            // function to keep count for the number of times clicked from localstorage.
+            function clickCounter(counterId) {
+              if (typeof(Storage) !== "undefined") {
+                if (localStorage[counterId]) {
+                  localStorage[counterId] = Number(localStorage[counterId]) + 1;
+                } else {
+                  localStorage[counterId] = 1;
+                }
+                document.getElementById("result-" + counterId).innerHTML = "Counter " + counterId + ": " + localStorage[counterId];
+              } else {
+                document.getElementById("result-" + counterId).innerHTML = "Sorry, your browser does not support web storage...";
+              }
+            }
+          </script>
+
+
+       </main>
+       <footer>
+        <div class='foot'>
+            <div>Yashashwini Alva</div>
+             <spam><small>By using this site, you agree to the Terms of Use and Privacy Policy.
+            Copyright &copy:All Rights Reserved</small></spam>
+        </div>
+
+
+       </footer>
+    </body>
+
+</html>

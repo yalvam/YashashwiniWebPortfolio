@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/jpg" href="image/P.JPG">
+        <link rel="preconnect" href="https://fonts.googeapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6b3f7ff147.js" crossorigin="anonymous"></script>
+    </head>
+      <!-- YASHASHWINI ALVA, Programming in HTML5, Assignment Task B -->
+    <body>
+     
+        
+      <header><h1><div> Portfolio </div></h1></header>
+
+          <!--Navigation bar  -->
+       <nav class="navbar">
+            <ul>
+                
+                <li><a href="index.html" >Home & Intro</a></li>
+                <li><a href="embed.html">Embeds</a></li>
+                <li><a href="canvas.html" class="active">Canvas API & SVG</a></li>
+                <li><a href="CSS Transition & Animation.html">CSS Transition & Animation</a></li>
+                <li><a href="geolocation.html">Geolocation API</a></li>
+                <li><a href="XMLHttpRequest.html">XMLHttpRequest</a></li>
+                <li><a href="localstorage.html">Local Storage</a></li>
+                <li><a href="web_socket.html">Web Socket</a></li>
+                <li><a href="web-worker.html">Web Worker</a></li>
+                <li><a href="contact.html">Contact</a></li>            
+            </ul>
+       </nav>
+       <main>
+        <div ><h1> Canvas API & SVG</h1></div>
+        
+        <div class="cssani"> 
+        <label for="" style="color: aqua;">Color Picker : </label>
+        <!-- HTML to Choose color -->
+         <input style="display: block;width: 4rem;"  type="color" id="colorPicker" value="#32a8a2" onchange="changeColor()">
+        </div>
+        <label for="" style="color:aqua;">Move To Change Size :</label>
+         <!-- HTML to change size -->
+        <input type="range" id="sizeSlider" min="50" max="400" value="400" oninput="changeSize()">
+        <!-- Canvas to draw -->
+          <canvas id="myCanvas" width="400" height="400"></canvas>
+
+
+
+
+          <script>
+            //get element with id
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+            //setting default color
+            const defaultColor = '#32a8a2';
+            let selectedColor = defaultColor;
+            
+            //Picking a color of choice
+            function changeColor() {
+                const colorPicker = document.getElementById('colorPicker');
+                selectedColor = colorPicker.value;
+                drawRectangle();
+            }
+            
+             //Changing shape by adjusting hieght and width
+            function changeSize() {
+                const sizeSlider = document.getElementById('sizeSlider');
+                canvas.width = sizeSlider.value;
+                canvas.height = sizeSlider.value;
+                drawRectangle();
+            }
+            
+            // Draw rectange
+            function drawRectangle() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = selectedColor;
+                ctx.fillRect(10, 10, canvas.width - 100, canvas.height - 100);
+            }
+            
+            
+            // Initial drawing
+            drawRectangle();
+            
+            
+            
+            </script>
+            
+      
+    
+
+       </main>
+       <!-- Footer -->
+       <footer>
+        <div class='foot'>
+            <div>Yashashwini Alva</div>
+             <spam><small>By using this site, you agree to the Terms of Use and Privacy Policy.
+            Copyright &copy:All Rights Reserved</small></spam>
+        </div>
+
+
+
+       </footer>
+    </body>
+
+</html>
